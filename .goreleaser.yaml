@@ -52,6 +52,24 @@ changelog:
       - Merge branch
       - go mod tidy
 
+brews:
+  - tap:
+      owner: zackijack
+      name: homebrew-tap
+    folder: Formula
+    homepage: https://github.com/zackijack
+    description: Go project template
+    install: |
+      bin.install "go-project"
+
+      output = Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"go-project", "completion", "bash")
+      (bash_completion/"go-project").write output
+
+      output = Utils.safe_popen_read({ "SHELL" => "zsh" }, bin/"go-project", "completion", "zsh")
+      (zsh_completion/"_go-project").write output
+    test: |
+      system "#{bin}/go-project version"
+
 nfpms:
   - file_name_template: "{{ .ProjectName }}_{{ .Arch }}"
     homepage: https://github.com/zackijack/go-project
