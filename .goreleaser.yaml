@@ -46,8 +46,8 @@ changelog:
   sort: asc
   filters:
     exclude:
-      - "^docs:"
-      - "^test:"
+      - "^docs"
+      - "^test"
       - Merge pull request
       - Merge branch
       - go mod tidy
