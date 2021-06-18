@@ -13,6 +13,11 @@ $ brew install go-project
 #### deb/rpm
 Download the `.deb` or `.rpm` from the [releases page](https://github.com/zackijack/go-project/releases) and install with `dpkg -i` and `rpm -i` respectively.
 
+#### docker
+```shell
+$ docker pull zackijack/go-project
+```
+
 #### go get
 ```shell
 $ go get github.com/zackijack/go-project
