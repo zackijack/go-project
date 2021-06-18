@@ -77,3 +77,24 @@ nfpms:
     formats:
       - deb
       - rpm
+
+dockers:
+  - image_templates:
+      - "zackijack/go-project:{{ .Tag }}"
+      - "zackijack/go-project:v{{ .Major }}"
+      - "zackijack/go-project:v{{ .Major }}.{{ .Minor }}"
+      - "zackijack/go-project:latest"
+    dockerfile: Dockerfile
+    use_buildx: true
+    build_flag_templates:
+      - "--pull"
+      - "--label=org.opencontainers.image.created={{ .Date }}"
+      - "--label=org.opencontainers.image.title={{ .ProjectName }}"
+      - "--label=org.opencontainers.image.title={{ .ProjectName }}"
+      - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
+      - "--label=org.opencontainers.image.description={{ .ProjectName }}"
+      - "--label=org.opencontainers.image.url=https://github.com/zackijack/go-project"
+      - "--label=org.opencontainers.image.source=https://github.com/zackijack/go-project"
+      - "--label=org.opencontainers.image.version={{ .Version }}"
+      - "--cache-from=type=local,src=/tmp/.buildx-cache"
+      - "--cache-to=type=local,dest=/tmp/.buildx-cache"
