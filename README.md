@@ -6,8 +6,14 @@ You can install the pre-compiled binary in several different ways.
 
 #### homebrew tap
 ```shell
-$ brew tap zackijack/go-project git@github.com:zackijack/homebrew-tap
+$ brew tap zackijack/tap
 $ brew install go-project
+```
+
+or simply
+
+```shell
+$ brew install zackijack/tap/go-project
 ```
 
 #### deb/rpm
