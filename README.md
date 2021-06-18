@@ -4,6 +4,9 @@ Go project template
 ## Install
 You can install the pre-compiled binary in several different ways.
 
+#### deb/rpm
+Download the `.deb` or `.rpm` from the [releases page](https://github.com/zackijack/go-project/releases) and install with `dpkg -i` and `rpm -i` respectively.
+
 #### go get
 ```shell
 $ go get github.com/zackijack/go-project

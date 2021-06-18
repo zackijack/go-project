@@ -51,3 +51,11 @@ changelog:
       - Merge pull request
       - Merge branch
       - go mod tidy
+
+nfpms:
+  - file_name_template: "{{ .ProjectName }}_{{ .Arch }}"
+    homepage: https://github.com/zackijack/go-project
+    description: Go project template
+    formats:
+      - deb
+      - rpm
