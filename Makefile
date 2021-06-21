@@ -23,7 +23,7 @@ help:
 .PHONY: build
 build:
 	@echo "Building ${APP_NAME} ${VERSION}"
-	go build -ldflags "-w -X github.com/zackijack/go-project/internal/version.Version=${VERSION} -X github.com/zackijack/go-project/internal/version.GitCommit=${GIT_COMMIT} -X github.com/zackijack/go-project/internal/version.BuildDate=${BUILD_DATE}" -o ${APP_NAME}
+	go build -ldflags "-w -X github.com/zackijack/go-project/internal/version.Version=${VERSION} -X github.com/zackijack/go-project/internal/version.GitCommit=${GIT_COMMIT} -X github.com/zackijack/go-project/internal/version.BuildDate=${BUILD_DATE}" -o bin/${APP_NAME}
 
 .PHONY: run
 run: build
