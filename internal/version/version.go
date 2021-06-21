@@ -18,4 +18,4 @@ var BuildDate string
 var GoVersion = runtime.Version()
 
 // OsArch is the version of operating system and architecture.
-var OsArch = fmt.Sprintf("%s %s", runtime.GOOS, runtime.GOARCH)
+var OsArch = fmt.Sprintf("%s / %s", runtime.GOOS, runtime.GOARCH)
