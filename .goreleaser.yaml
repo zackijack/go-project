@@ -70,6 +70,13 @@ brews:
     test: |
       system "#{bin}/go-project version"
 
+scoop:
+  bucket:
+    owner: zackijack
+    name: scoop-bucket
+  homepage: https://github.com/zackijack/go-project
+  description: Go project template
+
 nfpms:
   - file_name_template: "{{ .ProjectName }}_{{ .Arch }}"
     homepage: https://github.com/zackijack/go-project

@@ -19,6 +19,13 @@ or simply
 $ brew install zackijack/tap/go-project
 ```
 
+#### scoop
+
+```powershell
+PS> scoop bucket add zackijack https://github.com/zackijack/scoop-bucket.git
+PS> scoop install zackijack/go-project
+```
+
 #### deb/rpm
 
 Download the `.deb` or `.rpm` from the [releases page](https://github.com/zackijack/go-project/releases) and install with `dpkg -i` and `rpm -i` respectively.
