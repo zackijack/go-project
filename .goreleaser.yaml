@@ -57,7 +57,7 @@ brews:
       owner: zackijack
       name: homebrew-tap
     folder: Formula
-    homepage: https://github.com/zackijack
+    homepage: https://github.com/zackijack/go-project
     description: Go project template
     install: |
       bin.install "go-project"
