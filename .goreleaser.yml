@@ -22,7 +22,7 @@ builds:
       - goos: darwin
         goarch: 386
     ldflags:
-      - -w -X github.com/zackijack/go-project/internal/version.Version={{ .Version }} -X github.com/zackijack/go-project/internal/version.GitCommit={{ .Commit }} -X github.com/zackijack/go-project/internal/version.BuildDate={{ .Date }}
+      - -w -X github.com/zackijack/{{ .ProjectName }}/internal/version.Version={{ .Prerelease }} -X github.com/zackijack/{{ .ProjectName }}/internal/version.GitCommit={{ .FullCommit }} -X github.com/zackijack/{{ .ProjectName }}/internal/version.BuildDate={{ .Date }}
 
 archives:
   - name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
@@ -47,6 +47,9 @@ changelog:
   filters:
     exclude:
       - "^docs"
+      - "^chore"
+      - "^style"
+      - "^refactor"
       - "^test"
       - Merge pull request
       - Merge branch
@@ -57,29 +60,29 @@ brews:
       owner: zackijack
       name: homebrew-tap
     folder: Formula
-    homepage: https://github.com/zackijack/go-project
+    homepage: https://github.com/zackijack/{{ .ProjectName }}
     description: Go project template
     install: |
-      bin.install "go-project"
+      bin.install "{{ .ProjectName }}"
 
-      output = Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"go-project", "completion", "bash")
-      (bash_completion/"go-project").write output
+      output = Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"{{ .ProjectName }}", "completion", "bash")
+      (bash_completion/"{{ .ProjectName }}").write output
 
-      output = Utils.safe_popen_read({ "SHELL" => "zsh" }, bin/"go-project", "completion", "zsh")
-      (zsh_completion/"_go-project").write output
+      output = Utils.safe_popen_read({ "SHELL" => "zsh" }, bin/"{{ .ProjectName }}", "completion", "zsh")
+      (zsh_completion/"_{{ .ProjectName }}").write output
     test: |
-      system "#{bin}/go-project version"
+      system "#{bin}/{{ .ProjectName }} version"
 
 scoop:
   bucket:
     owner: zackijack
     name: scoop-bucket
-  homepage: https://github.com/zackijack/go-project
+  homepage: https://github.com/zackijack/{{ .ProjectName }}
   description: Go project template
 
 nfpms:
   - file_name_template: "{{ .ProjectName }}_{{ .Arch }}"
-    homepage: https://github.com/zackijack/go-project
+    homepage: https://github.com/zackijack/{{ .ProjectName }}
     description: Go project template
     formats:
       - deb
@@ -87,10 +90,10 @@ nfpms:
 
 dockers:
   - image_templates:
-      - "zackijack/go-project:{{ .Tag }}"
-      - "zackijack/go-project:v{{ .Major }}"
-      - "zackijack/go-project:v{{ .Major }}.{{ .Minor }}"
-      - "zackijack/go-project:latest"
+      - "zackijack/{{ .ProjectName }}:{{ .Tag }}"
+      - "zackijack/{{ .ProjectName }}:v{{ .Major }}"
+      - "zackijack/{{ .ProjectName }}:v{{ .Major }}.{{ .Minor }}"
+      - "zackijack/{{ .ProjectName }}:latest"
     dockerfile: Dockerfile
     use_buildx: true
     build_flag_templates:
@@ -100,8 +103,8 @@ dockers:
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
       - "--label=org.opencontainers.image.description={{ .ProjectName }}"
-      - "--label=org.opencontainers.image.url=https://github.com/zackijack/go-project"
-      - "--label=org.opencontainers.image.source=https://github.com/zackijack/go-project"
+      - "--label=org.opencontainers.image.url=https://github.com/zackijack/{{ .ProjectName }}"
+      - "--label=org.opencontainers.image.source=https://github.com/zackijack/{{ .ProjectName }}"
       - "--label=org.opencontainers.image.version={{ .Version }}"
       - "--cache-from=type=local,src=/tmp/.buildx-cache"
       - "--cache-to=type=local,dest=/tmp/.buildx-cache"

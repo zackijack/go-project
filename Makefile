@@ -1,7 +1,7 @@
 SHELL         = /bin/bash
 
 APP_NAME      = go-project
-VERSION      := $(shell git describe --always --tags)
+VERSION      := $(shell git describe --tags --abbrev=0 --exact-match 2>/dev/null)
 GIT_COMMIT    = $(shell git rev-parse HEAD)
 BUILD_DATE    = $(shell date '+%Y-%m-%d-%H:%M:%S')
 
@@ -23,7 +23,7 @@ help:
 .PHONY: build
 build:
 	@echo "Building ${APP_NAME} ${VERSION}"
-	go build -ldflags "-w -X github.com/zackijack/go-project/internal/version.Version=${VERSION} -X github.com/zackijack/go-project/internal/version.GitCommit=${GIT_COMMIT} -X github.com/zackijack/go-project/internal/version.BuildDate=${BUILD_DATE}" -o bin/${APP_NAME}
+	go build -ldflags "-w -X github.com/zackijack/${APP_NAME}/internal/version.Version=${VERSION} -X github.com/zackijack/${APP_NAME}/internal/version.GitCommit=${GIT_COMMIT} -X github.com/zackijack/${APP_NAME}/internal/version.BuildDate=${BUILD_DATE}" -o bin/${APP_NAME}
 
 .PHONY: run
 run: build
