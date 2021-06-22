@@ -6,7 +6,7 @@ Go project template
 
 You can install the pre-compiled binary in several different ways.
 
-#### homebrew tap
+### homebrew tap
 
 ```shell
 $ brew tap zackijack/tap
@@ -19,24 +19,24 @@ or simply
 $ brew install zackijack/tap/go-project
 ```
 
-#### scoop
+### scoop
 
 ```powershell
 PS> scoop bucket add zackijack https://github.com/zackijack/scoop-bucket.git
 PS> scoop install zackijack/go-project
 ```
 
-#### deb/rpm
+### deb/rpm
 
 Download the `.deb` or `.rpm` from the [releases page](https://github.com/zackijack/go-project/releases) and install with `dpkg -i` and `rpm -i` respectively.
 
-#### docker
+### docker
 
 ```shell
 $ docker pull zackijack/go-project
 ```
 
-#### go get
+### go get
 
 ```shell
 $ go get github.com/zackijack/go-project
@@ -44,11 +44,11 @@ $ go get github.com/zackijack/go-project
 
 and ensuring that `$GOPATH/bin` is added to your `$PATH`.
 
-#### manually
+### manually
 
 Download the pre-compiled binaries from the [releases page](https://github.com/zackijack/go-project/releases) and copy to the desired location.
 
-### Verifying the installation
+### Verify installation
 
 Once you’ve installed go-project, you can verify it is installed correctly by running `version` command:
 ```shell
