@@ -27,7 +27,7 @@ OS / Arch  : darwin / amd64
 
 var versionCmd = &cobra.Command{
 	Use:   "version",
-	Short: "Reveal go-project personal information",
+	Short: "Print the version information",
 	Long:  versionDesc,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Version    :", version.Version)
