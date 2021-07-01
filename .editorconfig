@@ -1,0 +1,21 @@
+#   ╔═╗╔╦╗╦╔╦╗╔═╗╦═╗┌─┐┌─┐┌┐┌┌─┐┬┌─┐
+#   ║╣  ║║║ ║ ║ ║╠╦╝│  │ ││││├┤ ││ ┬
+#  o╚═╝═╩╝╩ ╩ ╚═╝╩╚═└─┘└─┘┘└┘└  ┴└─┘
+#
+# This file (`.editorconfig`) exists to help maintain consistent formatting
+# throughout this project.
+#
+# To review what each of these options mean, see:
+# http://editorconfig.org/
+root = true
+
+[*]
+indent_style = tab
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+charset = utf-8
+
+[*.{tml,toml,yml,yaml}]
+indent_style = space
+indent_size = 2
