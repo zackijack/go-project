@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"github.com/zackijack/go-project/internal/helpers"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -55,6 +56,8 @@ PowerShell:
     And source this file from your PowerShell profile.
 `
 
+var errMsg = "There is something wrong with the completion generator"
+
 var completionCmd = &cobra.Command{
 	Use:                   "completion [bash|zsh|fish|powershell]",
 	Short:                 "Generate completion script",
@@ -65,13 +68,13 @@ var completionCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		switch args[0] {
 		case "bash":
-			cmd.Root().GenBashCompletion(os.Stdout)
+			helpers.CheckErr(cmd.Root().GenBashCompletion(os.Stdout), errMsg, true)
 		case "zsh":
-			cmd.Root().GenZshCompletion(os.Stdout)
+			helpers.CheckErr(cmd.Root().GenZshCompletion(os.Stdout), errMsg, true)
 		case "fish":
-			cmd.Root().GenFishCompletion(os.Stdout, true)
+			helpers.CheckErr(cmd.Root().GenFishCompletion(os.Stdout, true), errMsg, true)
 		case "powershell":
-			cmd.Root().GenPowerShellCompletion(os.Stdout)
+			helpers.CheckErr(cmd.Root().GenPowerShellCompletion(os.Stdout), errMsg, true)
 		}
 	},
 }
