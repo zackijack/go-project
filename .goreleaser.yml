@@ -91,8 +91,8 @@ nfpms:
 dockers:
   - image_templates:
       - "zackijack/{{ .ProjectName }}:{{ .Tag }}"
-      - "zackijack/{{ .ProjectName }}:v{{ .Major }}"
       - "zackijack/{{ .ProjectName }}:v{{ .Major }}.{{ .Minor }}"
+      - "zackijack/{{ .ProjectName }}:v{{ .Major }}"
       - "zackijack/{{ .ProjectName }}:latest"
     dockerfile: Dockerfile
     use_buildx: true

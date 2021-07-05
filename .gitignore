@@ -2,6 +2,9 @@
 go-project
 dist
 
+# Config file
+.env
+
 # Test binary, built with `go test -c`
 *.test
 
