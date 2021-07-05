@@ -56,7 +56,7 @@ PowerShell:
     And source this file from your PowerShell profile.
 `
 
-var errMsg = "There is something wrong with the completion generator"
+var errMsg = helpers.ErrMsg("completion generator")
 
 var completionCmd = &cobra.Command{
 	Use:                   "completion [bash|zsh|fish|powershell]",

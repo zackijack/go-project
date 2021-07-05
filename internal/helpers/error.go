@@ -1,17 +1,22 @@
 package helpers
 
 import (
-	"github.com/rs/zerolog/log"
+	"fmt"
+	zlog "github.com/rs/zerolog/log"
 	"os"
 )
 
 func CheckErr(err error, msg string, exit bool) {
 
 	if err != nil {
-		log.Error().Err(err).Msg(msg)
+		zlog.Error().Err(err).Msg(msg)
 
 		if exit {
 			os.Exit(1)
 		}
 	}
+}
+
+func ErrMsg(s string) string {
+	return fmt.Sprintf("There is something wrong with the %s", s)
 }
