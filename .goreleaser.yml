@@ -22,7 +22,7 @@ builds:
       - goos: darwin
         goarch: 386
     ldflags:
-      - -w -X github.com/zackijack/{{ .ProjectName }}/internal/version.Version={{ .Prerelease }} -X github.com/zackijack/{{ .ProjectName }}/internal/version.GitCommit={{ .FullCommit }} -X github.com/zackijack/{{ .ProjectName }}/internal/version.BuildDate={{ .Date }}
+      - -w -X github.com/zackijack/{{ .ProjectName }}/internal/version.Version={{ .Version }} -X github.com/zackijack/{{ .ProjectName }}/internal/version.GitCommit={{ .FullCommit }} -X github.com/zackijack/{{ .ProjectName }}/internal/version.BuildDate={{ .Date }}
 
 archives:
   - name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
